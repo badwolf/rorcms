@@ -1,0 +1,68 @@
+<h1>Editing article</h1>
+
+<% form_for(@article) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :channel_id %><br />
+    <%= f.collection_select :channel_id, Channel.all ,:id , :title %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :sub_title %><br />
+    <%= f.text_field :sub_title %>
+  </p>
+  <p>
+    <%= f.label :short_content %><br />
+    <%= fckeditor_textarea("article", "short_content", :toolbarSet => 'Simple', :width => '800px', :height => '500px' )%>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= fckeditor_textarea("article", "content", :toolbarSet => 'Simple', :width => '800px', :height => '500px' )%>
+  </p>
+  <p>
+    <%= f.label :source %><br />
+    <%= f.text_field :source %>
+  </p>
+  <p>
+    <%= f.label :source_link %><br />
+    <%= f.text_field :source_link %>
+  </p>
+  <p>
+    <%= f.label :if_link %><br />
+    <%= f.check_box :if_link %>
+  </p>
+  <p>
+    <%= f.label :author_id %><br />
+    <%= f.text_field :author_id %>
+  </p>
+  <p>
+    <%= f.label :state_id %><br />
+    <%= f.select :state_id, Article.options_for_status%>
+  </p>
+  <p>
+    <%= f.label :hits %><br />
+    <%= f.text_field :hits %>
+  </p>
+  <p>
+    <%= f.label :priority %><br />
+    <%= f.text_field :priority %>
+  </p>
+  <p>
+    <%= f.label :sticky %><br />
+    <%= f.check_box:sticky %>
+  </p>
+  <p>
+    <%= f.label :comments_count %><br />
+    <%= f.text_field :comments_count %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @article %> |
+<%= link_to 'Back', articles_path %>

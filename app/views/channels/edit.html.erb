@@ -1,0 +1,27 @@
+<h1>Editing channel</h1>
+
+<% form_for(@channel) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :parent_id %><br />
+    <%= f.select :parent_id, nested_set_options(Channel, @channel) {|i| "#{'-' * i.level} #{i.title}"}, :selected => @parent.try(:id), :include_blank => true%>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :intro %><br />
+    <%= f.text_area :intro %>
+  </p>
+  <p>
+    <%= f.label :contents_count %><br />
+    <%= f.text_field :contents_count %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @channel %> |
+<%= link_to 'Back', channels_path %>

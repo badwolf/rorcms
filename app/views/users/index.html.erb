@@ -1,0 +1,28 @@
+<h1>用户列表</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>用户</th>
+    <th>级别</th>
+    <th>邮箱</th>
+    <th>创建时间</th>
+    <th>修改时间</th>
+    <th>操作</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.id %></td>
+    <td><%=h user.username %></td>
+    <td><%=h user.role.try(:name) %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.created_at %></td>
+    <td><%=h user.updated_at %></td>
+    <td><%= link_to 'Edit', gedit_user_path(user) %></td>
+  </tr>
+<% end %>
+</table>
+  <%= will_paginate @user, :prev_label => '上一页', :next_label => '下一页'  %>
+<br />
+

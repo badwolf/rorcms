@@ -1,0 +1,49 @@
+<p>
+  <b>Commentable type:</b>
+  <%=h @comment.commentable_type %>
+</p>
+
+<p>
+  <b>Commentable:</b>
+  <%=h @comment.commentable_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @comment.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @comment.user_id %>
+</p>
+
+<p>
+  <b>Visitor name:</b>
+  <%=h @comment.visitor_name %>
+</p>
+
+<p>
+  <b>Visted ip:</b>
+  <%=h @comment.visted_ip %>
+</p>
+
+<p>
+  <b>Vote for:</b>
+  <%=h @comment.vote_for %>
+</p>
+
+<p>
+  <b>Vote against:</b>
+  <%=h @comment.vote_against %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @comment.state_id %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

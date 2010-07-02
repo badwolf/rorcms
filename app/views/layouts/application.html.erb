@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>WITCMS ror <%= h(yield(:title) || " Home") %></title>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag :fckeditor %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    
+    <div id="container">
+    
+    <div class="top">RORcms <span style="font-size:9px;">version 0.1.1</span></div>  
+
+    <div id="user_nav">  
+      <%= link_to t("activerecord.models.homes"), homes_path %> | 
+      <%= link_to t("activerecord.models.categories"), categories_path %> | 
+      <%= link_to t("activerecord.models.channels"), channels_path %> | 
+      <%= link_to t("activerecord.models.articles"), articles_path %> | 
+      <%= link_to t("activerecord.models.comments"), comments_path %> | 
+      <%= link_to t("activerecord.models.users"), users_path %> | 
+      <%= link_to t("activerecord.models.roles"), roles_path %> | 
+      <%= t("activerecord.models.attachments") %> | 
+      <%= t("activerecord.models.views") %> | 
+      <%= t("activerecord.models.partials") %> | 
+      <%= t("activerecord.models.config") %>   
+      <span class="reg">(
+      <% if current_user %> 
+        <span style="color:red;"><%= current_user.try(:username) %></span>
+        <%= link_to "用户设置", edit_user_path(:current) %>  
+        <%= link_to "退出", logout_path %>  
+      <% else %>  
+        <%= link_to "注册", new_user_path %>  
+        <%= link_to "登录", login_path %>  
+      <% end %>)
+      </span>
+    </div>  
+
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
+      
+      <%- if show_title? -%>
+        <h1><%=h yield(:title) %></h1>
+      <%- end -%>
+      
+      <%= yield %>
+    </div>
+  </body>
+</html>

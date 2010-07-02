@@ -1,0 +1,48 @@
+<h1>文章管理</h1>
+
+  <% form_for  @search do |f| %>
+    <span><span class="label">频道:</span> <%= f.collection_select :channel_id_equals, Channel.all, :id, :title, :include_blank => true %></span>
+    <span><span class="label">标题:</span> <%= text_field 'search', 'title_like' %></span>
+    <%= submit_tag '搜索', :title=>nil, :class => 'button' %>
+  <% end %>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>频道</th>
+    <th>标题</th>
+    <th>来源</th>
+    <th>外链</th>
+    <th>作者</th>
+    <th>状态</th>
+    <th>点击</th>
+    <th>优先级</th>
+    <th>置顶</th>
+    <th>评论</th>
+  </tr>
+
+<% @articles.each do |article| %>
+  <tr>
+    <td><%=h article.id %></td>
+    <td><%=h article.channel.title %></td>
+    <td><%=h article.title %></td>
+    <td><%=h article.source %></td>
+    <td><%=h article.if_link %></td>
+    <td><%=h article.author_id %></td>
+    <td><%=h article.status_name %></td>
+    <td><%=h article.hits %></td>
+    <td><%=h article.priority %></td>
+    <td><%=h article.sticky %></td>
+    <td><%=h article.comments_count %></td>
+    <td><%= link_to 'Show', article %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+  <%= will_paginate @articles, :prev_label => '上一页', :next_label => '下一页'  %>
+<br />
+
+<%= link_to 'New article', new_article_path %>
+<%= link_to '测试', :controller=>"user",:action=>"edit" %>
+

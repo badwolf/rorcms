@@ -1,0 +1,61 @@
+# == Schema Information
+# Schema version: 20100612030558
+#
+# Table name: articles
+#
+#  id             :integer         not null, primary key
+#  channel_id     :integer         
+#  title          :string(255)     
+#  sub_title      :string(255)     
+#  short_content  :text            
+#  content        :text            
+#  source         :string(255)     
+#  source_link    :string(255)     
+#  if_link        :boolean         
+#  author_id      :integer         
+#  state_id       :integer         
+#  hits           :integer         
+#  priority       :integer         default(0)
+#  sticky         :boolean         
+#  comments_count :integer         
+#  created_at     :datetime        
+#  updated_at     :datetime        
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  categorie_id: 1
+  channel_id: 1
+  title: MyString
+  sub_title: MyString
+  short_content: MyText
+  content: MyText
+  source: MyString
+  source_link: MyString
+  if_link: false
+  author_id: 1
+  state_id: 1
+  hits: 1
+  priority: 1
+  prime: 1
+  sticky: 1
+  comments_count: 1
+
+two:
+  categorie_id: 1
+  channel_id: 1
+  title: MyString
+  sub_title: MyString
+  short_content: MyText
+  content: MyText
+  source: MyString
+  source_link: MyString
+  if_link: false
+  author_id: 1
+  state_id: 1
+  hits: 1
+  priority: 1
+  prime: 1
+  sticky: 1
+  comments_count: 1

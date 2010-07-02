@@ -1,0 +1,33 @@
+# == Schema Information
+# Schema version: 20100612030558
+#
+# Table name: channels
+#
+#  id             :integer         not null, primary key
+#  title          :string(255)     
+#  intro          :text            
+#  parent_id      :integer         
+#  lft            :integer         
+#  rgt            :integer         
+#  contents_count :integer         default(0)
+#  created_at     :datetime        
+#  updated_at     :datetime        
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  intro: MyText
+  parent_id: 1
+  lft: 1
+  rgt: 1
+  contents_count: 1
+
+two:
+  title: MyString
+  intro: MyText
+  parent_id: 1
+  lft: 1
+  rgt: 1
+  contents_count: 1

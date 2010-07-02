@@ -1,0 +1,48 @@
+<h1>Editing comment</h1>
+
+<% form_for(@comment) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :commentable_type %><br />
+    <%= f.text_field :commentable_type %>
+  </p>
+  <p>
+    <%= f.label :commentable_id %><br />
+    <%= f.text_field :commentable_id %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :visitor_name %><br />
+    <%= f.text_field :visitor_name %>
+  </p>
+  <p>
+    <%= f.label :visted_ip %><br />
+    <%= f.text_field :visted_ip %>
+  </p>
+  <p>
+    <%= f.label :vote_for %><br />
+    <%= f.text_field :vote_for %>
+  </p>
+  <p>
+    <%= f.label :vote_against %><br />
+    <%= f.text_field :vote_against %>
+  </p>
+  <p>
+    <%= f.label :state_id %><br />
+    <%= f.text_field :state_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @comment %> |
+<%= link_to 'Back', comments_path %>

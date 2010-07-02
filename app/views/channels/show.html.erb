@@ -1,0 +1,33 @@
+<p>
+  <b>Title:</b>
+  <%=h @channel.title %>
+</p>
+
+<p>
+  <b>Intro:</b>
+  <%=h @channel.intro %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%=h @channel.parent_id %>
+</p>
+
+<p>
+  <b>Lft:</b>
+  <%=h @channel.lft %>
+</p>
+
+<p>
+  <b>Rgt:</b>
+  <%=h @channel.rgt %>
+</p>
+
+<p>
+  <b>Contents count:</b>
+  <%=h @channel.contents_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_channel_path(@channel) %> |
+<%= link_to 'Back', channels_path %>
