@@ -45,4 +45,7 @@
 
 <%= link_to 'New article', new_article_path %>
 <%= link_to '测试', :controller=>"user",:action=>"edit" %>
+ <%form_remote_tag :url =>{ :action => :findReaderByBarcode },:success =>'callBackFunToBook(request)' do%>
+    <div><%= submit_tag 'Save' %></div>
+  <% end -%>
 
